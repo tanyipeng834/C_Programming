@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void g(int x, int * y,FILE *file) {
+void g(int x, int * y) {
  
   printf("In g, x = %d, *y = %d\n", x, *y);
   x++;
@@ -9,12 +9,12 @@ void g(int x, int * y,FILE *file) {
   y = &x;
 }
 
-void f(int * a, int b,FILE *file) {
+void f(int * a, int b) {
   
   printf("In f, *a = %d, b = %d\n", *a, b);
   *a += b;
   b *= 2;
-  g(*a, &b,file);
+  g(*a, &b);
   printf("Back in f, *a = %d, b = %d\n", *a, b);
  
   
@@ -22,12 +22,12 @@ void f(int * a, int b,FILE *file) {
 
 
 int main(void) {
-  FILE *file = fopen("answer.txt", "w");
+  
 
 
   int x = 3;
   int y = 4;
-  f(&x, y,file);
+  f(&x, y);
   
   printf("In main: x = %d, y = %d\n", x, y);
   return EXIT_SUCCESS;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int f(int ** r, int ** s, FILE *file) {
+int f(int ** r, int ** s) {
   int temp = ** r;
   int temp2 = **s;
   int * z = *r;
@@ -17,12 +17,12 @@ int f(int ** r, int ** s, FILE *file) {
 
 int main(void) {
 
-  FILE *file = fopen("answer.txt","w");
+
   int a = 80;
   int b = 12;
   int * p = &a;
   int * q = &b;
-  int x = f(&p, &q,file);
+  int x = f(&p, &q);
   printf("x = %d\n", x);
   printf("*p = %d\n", *p);
   printf("*q = %d\n", *q);
