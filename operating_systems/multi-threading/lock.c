@@ -24,7 +24,9 @@ void* increment_counter(void * arg){
 }
 
 void init(counter_t* c ){
-    pthread_mutex_init(&c->lock,NULL);
+    int rc = pthread_mutex_init(&c->lock,NULL);
+    assert(rc ==0);
+    
     c->counter =0;
 
 }
